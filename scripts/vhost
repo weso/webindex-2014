@@ -1,0 +1,26 @@
+<VirtualHost *:80>
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/webindex
+
+        ServerName http://beta.webindex.org/
+        ServerAlias http://beta.webindex.org/ localhost
+
+        # API wsgi script
+        WSGIScriptAlias /api /var/www/webindex/api.wsgi
+
+        # Pass authorization info on (needed for rest api)
+        WSGIPassAuthorization On
+
+        # Api wsgi access
+        <Directory /var/www/webindex>
+        AllowOverride All
+        Require all granted
+        </Directory>
+
+        ErrorLog /var/log/apache2/webindex.error.log
+        CustomLog /var/log/apache2/webindex.custom.log combined
+
+</VirtualHost>
+
+
