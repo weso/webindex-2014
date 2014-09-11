@@ -3,19 +3,11 @@
 # --- Change this  default values ---: #
 mysql_root_pass=root
 phpmyadmin_pass=root
-mongodb_user=wix_admin
-mongodb_pass=root
 # ------------------------------------ #
 
 # Install required packages:
 sudo apt-get -y update && sudo apt-get -y upgrade
 sudo apt-get install -y php5-gd php5 libapache2-mod-php5 php5-cli php5-mysql php5-curl python-dev python-pip python-virtualenv git-core apache2 libapache2-mod-wsgi curl php-apc
-
-# Install Virtualenv Wrapper
-sudo pip install virtualenvwrapper
-
-# Configure src and virtualenv paths in .bashrc
-# http://virtualenvwrapper.readthedocs.org/en/latest/install.html
 
 # Install MongoDB
 # Import the public key used by the package management system
@@ -32,11 +24,6 @@ sudo apt-get install -y mongodb-org
 
 # Start MongoDB
 sudo service mongod start
-
-# Create Mongo admin user
-echo "db.createUser({user: \"$mongodb_user\", pwd: \"$mongodb_pass\", roles: [{ role: \"userAdminAnyDatabase\", db: \"admin\"}]})" > admin_user.js
-mongo localhost:27017/admin admin_user.js
-rm -rf admin_user.js
 
 # Enable Mongo Client Access Control
 sudo sed -ri 's|bind_ip = 127.0.0.1|#bind_ip = 127.0.0.1|g' /etc/mongod.conf

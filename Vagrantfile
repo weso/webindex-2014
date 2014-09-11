@@ -62,6 +62,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Shell provisioning
   config.vm.provision :shell, :path => "scripts/1-Base.sh"
   config.vm.provision :shell, :path => "scripts/2-Api.sh"
+  config.vm.provision :shell, :path => "scripts/3-Mongo_admin.sh"
 
   # Enable provisioning with CFEngine. CFEngine Community packages are
   # automatically installed. For example, configure the host as a
