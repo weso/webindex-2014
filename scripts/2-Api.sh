@@ -31,7 +31,19 @@ deactivate
 
 # Copy api wsgi file
 sudo mkdir /var/www/webindex
-sudo cp /vagrant/scripts/api.wsgi /var/www/webindex
+
+api_home_file=~/webindex-2014/scripts/api.wsgi
+api_vagrant_file=/vagrant/scripts/api.wsgi
+
+if [ -f "$api_home_file" ]
+then
+    sudo cp $api_home_file /var/www/webindex
+
+elif [ -f "$api_vagrant_file" ]
+then
+    sudo cp $api_vagrant_file /var/www/webindex
+
+fi
 
 # Add Apache user permissions
 sudo chown -R www-data:www-data /var/www/webindex

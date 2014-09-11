@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-. /scripts/1-Base.sh
-. /scripts/2-Api.sh
+. scripts/1-Base.sh
+. scripts/2-Api.sh
