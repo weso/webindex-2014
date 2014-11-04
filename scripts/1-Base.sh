@@ -30,17 +30,17 @@ sudo sed -ri 's|bind_ip = 127.0.0.1|#bind_ip = 127.0.0.1|g' /etc/mongod.conf
 sudo service mongod restart
 
 # Install MySQL
-sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password '$mysql_root_pass''
-sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password '$mysql_root_pass''
-sudo apt-get install -y mysql-server mysql-client libmysqlclient-dev
+#sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password '$mysql_root_pass''
+#sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password '$mysql_root_pass''
+#sudo apt-get install -y mysql-server mysql-client libmysqlclient-dev
 
 # Install phpMyAdmin
-sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/dbconfig-install boolean true'
-sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/app-password-confirm password '$phpmyadmin_pass''
-sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/admin-pass password '$mysql_root_pass''
-sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/app-pass password '$mysql_root_pass''
-sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2'
-sudo apt-get install -y phpmyadmin
+#sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/dbconfig-install boolean true'
+#sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/app-password-confirm password '$phpmyadmin_pass''
+#sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/admin-pass password '$mysql_root_pass''
+#sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/app-pass password '$mysql_root_pass''
+#sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2'
+#sudo apt-get install -y phpmyadmin
 
 # Create the Apache Config File
 sudo rm /etc/apache2/sites-available/000-default.conf

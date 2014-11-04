@@ -27,6 +27,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Apache
   config.vm.network :forwarded_port, guest: 80, host: 8080, auto_correct: true
 
+  # Flask
+  config.vm.network :forwarded_port, guest: 5000, host: 5000, auto_correct: true
+
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
@@ -45,6 +48,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
+  # other config here
+  config.vm.synced_folder "src/", "/usr/local/src", create: true
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
